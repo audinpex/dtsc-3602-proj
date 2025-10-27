@@ -21,3 +21,10 @@ for i in range(20):
     file_name = 'article-' + str(i) + '.txt'
     with open(file_name, 'w', encoding='utf-8') as f:
         f.write(str(souped_article))
+    article_title = souped_article.find('h1')
+    article_author = souped_article.find('h5', class_='margin-top-1')
+    article_body = souped_article.find('div', class_="cell large-8")
+    article_write = article_title.text + '\n' + article_author.text + '\n' + article_body.text
+    file_name_2 = 'article-text-' + str(i) + '.txt'
+    with open(file_name_2, 'w', encoding='utf-8') as f:
+        f.write(str(article_write))
