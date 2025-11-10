@@ -23,7 +23,7 @@ plt.title("Top 5 Fraud-Related Keywords")
 plt.xlabel("Keyword")
 plt.ylabel("Frequency")
 plt.tight_layout()
-plt.show()
+plt.savefig("top_5_keywords.png")
 
 
 #########
@@ -47,7 +47,7 @@ print(trend_counts)
 trend_counts.plot(kind='bar', color='steelblue', title='Top Fraud Trends')
 plt.ylabel("Number of Articles")
 plt.tight_layout()
-plt.show()
+plt.savefig("top_trends.png")
 
 
 ########
@@ -60,7 +60,7 @@ wordcloud = WordCloud(width=800, height=400, background_color='white').generate(
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis("off")
 plt.title("Common Words in Fraud Summaries")
-plt.show()
+plt.savefig("common_words_cloud.png")
 
 
 ######
@@ -74,5 +74,5 @@ plt.hist(df['sentiment'], bins=10, color='orange', edgecolor='black')
 plt.title("Sentiment Distribution of Fraud Summaries")
 plt.xlabel("Polarity (–1 = Negative, +1 = Positive)")
 plt.ylabel("Count")
-plt.show()
+plt.savefig("sentiment_distribution.png")
 
