@@ -24,6 +24,7 @@ plt.xlabel("Keyword")
 plt.ylabel("Frequency")
 plt.tight_layout()
 plt.savefig("top_5_keywords.png")
+plt.close()
 
 
 #########
@@ -48,6 +49,7 @@ trend_counts.plot(kind='bar', color='steelblue', title='Top Fraud Trends')
 plt.ylabel("Number of Articles")
 plt.tight_layout()
 plt.savefig("top_trends.png")
+plt.close()
 
 
 ########
@@ -61,6 +63,7 @@ plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis("off")
 plt.title("Common Words in Fraud Summaries")
 plt.savefig("common_words_cloud.png")
+plt.close()
 
 
 ######
