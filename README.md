@@ -11,20 +11,9 @@ This repository contains all code, documentation, images, and outputs created th
 
 Project Structure
 
-project/
-│
-├── data/                  # Raw and cleaned datasets (CSV, TXT, JSON)
-├── outputs/               # Visualizations (PNG), statistical summaries
-├── src/                   # All Python source code
-│   ├── scraper.py         # Web scraping logic for ACFE blog
-│   ├── filter_keywords.py # Keyword filtering and classification
-│   ├── analysis.py        # Sentiment + statistical analysis
-│   ├── supabase_upload.py # Code for sending scraped data to Supabase
-│   └── pipeline.py        # Automated full workflow
-│
-├── images/                # Wordclouds, histograms, trend graphs
-├── requirements.txt       # Python dependencies
-└── README.md              # Project documentation
+_________________________________________________
+
+
 
 Technologies Used
 
