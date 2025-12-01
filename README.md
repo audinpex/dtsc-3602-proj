@@ -72,13 +72,13 @@ Scam, Embezzlement, Fraud Investigation, Money Laundering, Bribery
 
 These dominated the narrative across ACFE posts.
 
-2️Fraud Category Distribution
+Fraud Category Distribution
 
 30% of articles: Financial Fraud (embezzlement, bribery, money laundering)
 
 70% of articles: General or Other Fraud (phishing, identity theft, charity fraud, scams)
 
-3️Sentiment 
+Sentiment 
 
 
 A histogram of polarity values revealed:
