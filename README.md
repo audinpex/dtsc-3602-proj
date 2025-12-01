@@ -9,7 +9,8 @@ The final pipeline automates scraping → filtering → storing → analyzing �
 
 This repository contains all code, documentation, images, and outputs created throughout the project.
 
-📂 Project Structure
+Project Structure
+
 project/
 │
 ├── data/                  # Raw and cleaned datasets (CSV, TXT, JSON)
@@ -25,7 +26,7 @@ project/
 ├── requirements.txt       # Python dependencies
 └── README.md              # Project documentation
 
-🛠️ Technologies Used
+Technologies Used
 
 Python (BeautifulSoup, Requests, Pandas, Matplotlib)
 
@@ -37,7 +38,8 @@ WordCloud (keyword visualization)
 
 Git & GitHub (collaboration and version control)
 
-🔍 Project Objectives
+
+Project Objectives
 
 Scrape fraud-related articles from the ACFE Insights Blog.
 
@@ -51,58 +53,33 @@ Generate visualizations summarizing fraud activity.
 
 Build a complete and reusable pipeline for future fraud analysis.
 
-📑 Dataset Summary
+
+Dataset Summary
 
 After refining our keyword search to reduce noise, we collected 102 high-relevance articles using keywords such as:
 
-Scam
+Scam, Embezzlement, Fraud investigation, Bribery, Money laundering, 
 
-Embezzlement
 
-Fraud investigation
+Each article record includes: Title, Full text, Matching keywords, Category (Financial / General Fraud), Sentiment score, Metadata (URL, scrape date), Key Findings, Keyword Frequency
 
-Bribery
 
-Money laundering
-
-Each article record includes:
-
-Title
-
-Full text
-
-Matching keywords
-
-Category (Financial / General Fraud)
-
-Sentiment score
-
-Metadata (URL, scrape date)
-
-📊 Key Findings
-1️⃣ Keyword Frequency
 
 Top five fraud-related terms:
 
-Scam
+Scam, Embezzlement, Fraud Investigation, Money Laundering, Bribery
 
-Embezzlement
-
-Fraud Investigation
-
-Money Laundering
-
-Bribery
 
 These dominated the narrative across ACFE posts.
 
-2️⃣ Fraud Category Distribution
+2️Fraud Category Distribution
 
-30% of articles → Financial Fraud (embezzlement, bribery, money laundering)
+30% of articles: Financial Fraud (embezzlement, bribery, money laundering)
 
-70% of articles → General or Other Fraud (phishing, identity theft, charity fraud, scams)
+70% of articles: General or Other Fraud (phishing, identity theft, charity fraud, scams)
 
-3️⃣ Sentiment Analysis
+3️Sentiment 
+
 
 A histogram of polarity values revealed:
 
@@ -110,7 +87,8 @@ Most articles are neutral to slightly positive, due to factual reporting style
 
 A smaller portion are negative, reflecting the severity of fraud cases
 
-4️⃣ Emerging Trends
+
+Emerging Trends
 
 Rise in scam-based fraud (phishing, text scams).
 
@@ -118,23 +96,22 @@ Corporate and internal fraud remains consistently reported.
 
 Consumer-level fraud dominates the "general fraud" category.
 
-📈 Visualizations
+
+Visualizations
 
 Stored in /outputs or /images, including:
 
-Word Cloud of most frequent terms
-
-Keyword Frequency Histogram
-
-Fraud Category Distribution Plot
-
+Word Cloud of most frequent terms, 
+Keyword Frequency Histogram, 
+Fraud Category Distribution Plot, 
 Sentiment Distribution Histogram
+
 
 Trend Breakdown Charts
 
 Each image is automatically generated and saved during the pipeline run.
 
-🧩 Pipeline Workflow
+Pipeline Workflow
 1. Scrape
 
 Pulls ACFE articles using Requests + BeautifulSoup.
@@ -167,7 +144,7 @@ Fraud categories
 
 Outputs multiple PNG charts for presentation use.
 
-🚀 How to Run the Project
+How to Run the Project
 1. Install dependencies
 pip install -r requirements.txt
 
@@ -180,7 +157,8 @@ python src/filter_keywords.py
 4. Run full pipeline
 python src/pipeline.py
 
-📦 Deliverables
+
+Deliverables
 
 Complete scraped dataset (CSV + Supabase)
 
@@ -195,20 +173,3 @@ Final report
 Presentation slide deck
 
 Full documented codebase
-
-👥 Team Contributions
-
-You can add a section like this:
-
-Member A: Scraper development, keyword filtering
-
-Member B: Data analysis, sentiment scoring, visualizations
-
-Member C: Supabase integration, pipeline automation
-
-Everyone: Documentation, testing, presentation
-
-📨 Contact
-
-For project questions or collaboration:
-Team Name / Emails / GitHub Handles
