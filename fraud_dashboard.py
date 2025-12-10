@@ -195,6 +195,27 @@ with tab_overview:
         ax_trend.set_title("Articles by fraud trend")
         st.pyplot(fig_trend)
 
+        # New visual: severity mix within each fraud trend
+        st.subheader("Severity mix within each fraud trend")
+        if not filtered_df.empty:
+            # Create a crosstab of trend vs severity level
+            severity_trend = pd.crosstab(filtered_df["trend"], filtered_df["severity_level"])
+
+            # Ensure consistent column order and fill any missing levels with zero
+            severity_trend = severity_trend.reindex(columns=["High", "Medium", "Low"], fill_value=0)
+
+            # Convert counts to percentages within each trend so we can see the mix
+            severity_trend_pct = severity_trend.div(severity_trend.sum(axis=1), axis=0)
+
+            fig_combo, ax_combo = plt.subplots()
+            severity_trend_pct.plot(kind="bar", stacked=True, ax=ax_combo)
+            ax_combo.set_ylabel("Share of articles")
+            ax_combo.set_title("Severity mix by fraud trend")
+            ax_combo.legend(title="Severity level", bbox_to_anchor=(1.05, 1), loc="upper left")
+            st.pyplot(fig_combo)
+        else:
+            st.info("Not enough data to calculate severity by fraud trend.")
+
         st.subheader("Top fraud keywords")
         if keyword_counts:
             top5 = keyword_counts.most_common(5)
