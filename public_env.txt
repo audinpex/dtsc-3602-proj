@@ -1,0 +1,2 @@
+SUPABASE_URL=https://ghygmobeamfokzcbezpx.supabase.co
+PUB_KEY=sb_publishable__BCDtV8BkdmjjVQN2VKAmA_7xbk9NUA
