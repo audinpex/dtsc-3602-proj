@@ -3,6 +3,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from collections import Counter
 from textblob import TextBlob
+import os
+from dotenv import load_dotenv
+from supabase import create_client, client
+
+load_dotenv()
+valid_url = True
+
+
 
 # Set up the main Streamlit page layout and basic configuration
 st.set_page_config(
@@ -13,6 +21,19 @@ st.set_page_config(
 
 # Simple title that tells the user what this app is focused on
 st.title("USAA Fraud Article Intelligence Dashboard (ACFE Source)")
+
+DATABASE_URL = os.getenv('SUPABASE_URL')
+if not DATABASE_URL:
+    print("URL not found, using local csv")
+    valid_url = False
+
+def init_connection():
+    url = DATABASE_URL
+    key = os.getenv("PUB_KEY")
+    return create_client(url, key)
+
+if valid_url:
+    supabaser = init_connection()
 
 # Load the summarized fraud article data from the CSV file
 def load_data():
@@ -28,8 +49,17 @@ def load_data():
     df["summary"] = df["summary"].fillna("")
     return df
 
-df = load_data()
+def load_data_2():
+    return supabaser.table('articles_summarized').select('*').execute()
 
+if valid_url:
+    df_raw = load_data_2()
+    df_dict = df_raw.__dict__
+    df = pd.DataFrame.from_dict(df_dict['data'])
+else:
+    df = load_data()
+
+print(df.describe)
 # Assign a simple fraud trend label based on detected keywords
 if "trend" not in df.columns:
     def get_trend(keywords_str: str) -> str:
