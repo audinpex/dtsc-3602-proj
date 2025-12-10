@@ -1,164 +1,64 @@
 # dtsc-3602-proj
-Fraud research project for DTSC-3602
-
-Fraud Article Scraping & Analysis Project
-Overview
-
-This project focuses on scraping fraud-related articles from the ACFE Insights Blog, classifying them using targeted fraud-related keywords, storing the results in a structured dataset, and analyzing fraud trends through visualizations and statistical summaries.
-The final pipeline automates scraping → filtering → storing → analyzing → visualizing.
-
-This repository contains all code, documentation, images, and outputs created throughout the project.
-
-Project Structure
-
-_________________________________________________
-
-
-
-Technologies Used
-
-Python (BeautifulSoup, Requests, Pandas, Matplotlib)
-
-Supabase (backend storage)
-
-NLTK / TextBlob (sentiment scoring)
-
-WordCloud (keyword visualization)
-
-Git & GitHub (collaboration and version control)
-
-
-Project Objectives
-
-Scrape fraud-related articles from the ACFE Insights Blog.
-
-Store scraped data in a structured format (pandas DataFrame, CSV, Supabase).
-
-Classify articles using a refined set of fraud-related keywords.
-
-Identify common themes and fraud trends.
-
-Generate visualizations summarizing fraud activity.
-
-Build a complete and reusable pipeline for future fraud analysis.
-
-
-Dataset Summary
-
-After refining our keyword search to reduce noise, we collected 102 high-relevance articles using keywords such as:
-
-Scam, Embezzlement, Fraud investigation, Bribery, Money laundering, 
-
-
-Each article record includes: Title, Full text, Matching keywords, Category (Financial / General Fraud), Sentiment score, Metadata (URL, scrape date), Key Findings, Keyword Frequency
-
-
-
-Top five fraud-related terms:
-
-Scam, Embezzlement, Fraud Investigation, Money Laundering, Bribery
-
-
-These dominated the narrative across ACFE posts.
-
-Fraud Category Distribution
-
-30% of articles: Financial Fraud (embezzlement, bribery, money laundering)
-
-70% of articles: General or Other Fraud (phishing, identity theft, charity fraud, scams)
-
-Sentiment 
-
-
-A histogram of polarity values revealed:
-
-Most articles are neutral to slightly positive, due to factual reporting style
-
-A smaller portion are negative, reflecting the severity of fraud cases
-
-
-Emerging Trends
-
-Rise in scam-based fraud (phishing, text scams).
-
-Corporate and internal fraud remains consistently reported.
-
-Consumer-level fraud dominates the "general fraud" category.
-
-
-Visualizations
-
-Stored in /outputs or /images, including:
-
-Word Cloud of most frequent terms, 
-Keyword Frequency Histogram, 
-Fraud Category Distribution Plot, 
-Sentiment Distribution Histogram
-
-
-Trend Breakdown Charts
-
-Each image is automatically generated and saved during the pipeline run.
-
-Pipeline Workflow
-1. Scrape
-
-Pulls ACFE articles using Requests + BeautifulSoup.
-
-2. Filter
-
-Identifies relevant articles using the refined keyword list.
-
-3. Store
-
-Saves data to:
-
-pandas DataFrame
-
-CSV files
-
-Supabase database
-
-4. Analyze
-
-Calculates:
-
-Keyword frequency
-
-Sentiment polarity
-
-Fraud categories
-
-5. Visualize
-
-Outputs multiple PNG charts for presentation use.
-
-How to Run the Project
-1. Install dependencies
-pip install -r requirements.txt
-
-2. Run the scraper
-python src/scraper.py
-
-3. Filter articles using keywords
-python src/filter_keywords.py
-
-4. Run full pipeline
+Fraud Article Scraping & Analysis Pipeline
+A Data-Driven Fraud Detection & Trend Analysis Project — DTSC 3602
+
+Team 11
+Team Lead: Alexi McNabb
+Storyteller / Communication Lead: Aaron Foley
+Data Analyst: Will Jones
+Domain Expert: Chase Patterson
+
+Project Overview
+This project builds a complete, automated pipeline that scrapes fraud-related articles from the ACFE Insights Blog, classifies them using fraud-specific keywords, stores structured datasets, and generates sentiment + keyword analyses along with visual summaries of emerging fraud trends.
+The pipeline supports scraping → filtering → storing → analyzing → visualizing.
+
+Quick Start
+Install Dependencies
+uv venv
+uv pip install -r requirements.txt
+
+Environment Setup
+Create a .env file in the project root:
+SUPABASE_URL=your_url
+SUPABASE_KEY=your_service_role_key
+
+Run the Pipeline
 python src/pipeline.py
 
+Run Individual Components
+Scraper: python src/scraper.py
+Keyword Filter: python src/filter_keywords.py
+
+
+Methodology
+1. Scrape
+Uses requests + BeautifulSoup to pull article titles, text, URLs, and metadata from the ACFE Insights Blog.
+2. Filter
+Articles are flagged as fraud-related using a refined keyword list, including: fraud, scam, embezzlement, whistleblower, bribery, corruption, money laundering, racketeering, non-compliance, irregularity
+3. Store
+Data is saved in: Pandas DataFrame, CSV (articles.csv), Supabase table (fraud_articles)
+4. Analyze
+Pipeline computes: Keyword frequency, Category classification (Financial vs. General Fraud), Trend summaries.
+5. Visualize: Word Cloud, Keyword Frequency Histogram, Fraud Category Distribution Chart, Sentiment Histogram, All results are saved in /outputs.
+
+Dataset Summary
+Top 5 Fraud-Related Terms: Scam, Embezzlement, Fraud Investigation, Money Laundering, Bribery
+Analysis: Most articles scored neutral to slightly positive, consistent with factual reporting. Negative articles typically involved severe corporate fraud or high-loss events.
+
+Key Findings
+Top Fraud Trends: Rise in scam-based fraud, especially phishing, text scams, and consumer-targeted schemes. Corporate & internal fraud (embezzlement, bribery, laundering) remains consistently represented. Consumer fraud dominates, indicating widespread everyday risk among the general public.
+
+Technologies Used
+Python: BeautifulSoup, Requests, Pandas
+Supabase: Backend storage
+NLTK / TextBlob: Sentiment scoring
+Matplotlib, WordCloud: Visual analytics
+Git & GitHub: Version control
 
 Deliverables
-
 Complete scraped dataset (CSV + Supabase)
-
 Keyword-classified dataset
-
-Sentiment and statistical summaries
-
-Visualizations (PNG)
-
-Final report
-
+Sentiment summary + statistical analysis
+Visualizations folder
 Presentation slide deck
-
-Full documented codebase
+Fully documented codebase
