@@ -4,7 +4,7 @@ import pandas as pd
 import nltk
 from nltk.tokenize import sent_tokenize
 
-nltk.download('punkt_tab')
+nltk.download('punkt')
 
 # --- FRAUD KEYWORDS ---
 FRAUD_KEYWORDS = [
